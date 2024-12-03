@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #2a4d69; /* Dark blue text */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Task Input Section */
+.task-input {
+    margin-bottom: 2rem;
+}
+
+.task-input h1 {
+    font-size: 2.5rem;
+    color: #1b3b5f;
+    margin-bottom: 1rem;
+}
+
+.task-input form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-input input {
+    width: 60%;
+    padding: 0.8rem;
+    border: 2px solid #5c99d6;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2a4d69;
+}
+
+.task-input input:focus {
+    outline: none;
+    border-color: #2a4d69;
+    box-shadow: 0 0 5px #5c99d6;
+}
+
+.task-input button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #5c99d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-input button:hover {
+    background-color: #2a4d69;
+}
+
+/* Task and Completed Sections */
+.task-lists {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Task Section */
+.tasks,
+.completed-tasks {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tasks h2,
+.completed-tasks h2 {
+    color: #1b3b5f;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f0f8ff;
+    border: 1px solid #d1e7ff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:hover {
+    background-color: #e3f2fd;
+}
+
+/* Task Actions */
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button.done-btn {
+    background-color: #82c4f5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button.done-btn:hover {
+    background-color: #5c99d6;
+}
+
+button.remove-btn {
+    background-color: #f76c6c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button.remove-btn:hover {
+    background-color: #e04e4e;
+}
+
+/* Completed Tasks */
+.completed-tasks li {
+    background-color: #e3f2fd;
+    border-color: #cde2ff;
+    opacity: 0.6; /* Makes tasks look faded */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.completed-tasks li:hover {
+    background-color: #d6ecfa;
+    opacity: 0.8; /* Slightly less faded on hover */
+}
