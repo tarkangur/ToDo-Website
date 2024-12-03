@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Task Input Section -->
+        <div class="task-input">
+            <h1>To-Do List</h1>
+            <form method="POST" action="{{ url_for('add_task') }}">
+                <input type="text" name="task" placeholder="Add a new task..." required>
+                <button type="submit"><i class="fas fa-plus"></i> Add Task</button>
+            </form>
+        </div>
+
+        <!-- Task and Completed Sections -->
+        <div class="task-lists">
+            <!-- Task Section -->
+            <div class="tasks">
+                <h2>Tasks</h2>
+                <ul id="task-list">
+                    {% for task in tasks %}
+                    <li>
+                        {{ task }}
+                        <div class="task-actions">
+                            <form method="POST" action="{{ url_for('mark_as_done') }}">
+                                <input type="hidden" name="task" value="{{ task }}">
+                                <button type="submit" class="done-btn">Done</button>
+                            </form>
+                            <form method="POST" action="{{ url_for('remove_task') }}">
+                                <input type="hidden" name="task" value="{{ task }}">
+                                <button type="submit" class="remove-btn">Remove</button>
+                            </form>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Completed Section -->
+            <div class="completed-tasks">
+                <h2>Completed</h2>
+                <ul id="completed-list">
+                    {% for task in completed_tasks %}
+                    <li>
+                        {{ task }}
+                        <form method="POST" action="{{ url_for('remove_completed') }}">
+                            <input type="hidden" name="task" value="{{ task }}">
+                            <button type="submit" class="remove-btn">Remove</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
